@@ -6,7 +6,7 @@ Tur::Application.configure do
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :user_name            => 'taskupdatereminder@gmail.com',
+      :user_name            => 'abc@gmail.com',
       :password             => 'abcdefgh5$',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }

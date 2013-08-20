@@ -4,7 +4,7 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "taskupdatereminder@gmail.com"
+  config.mailer_sender = "abc@gmail.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -243,6 +243,6 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
-  config.omniauth :facebook, '505676772845575', '10ef4075f628b085dc94659013b5a514', scope: 'email,user_birthday,read_stream'
+  config.omniauth :facebook, 'APP_ID', 'APP_SECRET_ID', scope: 'email,user_birthday,read_stream'
 
 end
