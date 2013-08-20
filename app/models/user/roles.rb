@@ -1,6 +1,6 @@
 module User::Roles
   extend ActiveSupport::Concern
-  
+
   included do
   end
 

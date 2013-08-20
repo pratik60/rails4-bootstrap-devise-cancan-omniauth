@@ -1,23 +1,6 @@
-class Identity
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class Identity < ActiveRecord::Base
 
-  belongs_to :user, index: true
-
-  field :uid, type: String
-  field :provider, type: String
-  field :token, type: String
-  field :secret, type: String
-  field :expires_at, type: DateTime
-
-  field :email, type: String
-  field :image, type: String
-  field :nickname, type: String
-  field :first_name, type: String
-  field :last_name, type: String
-
-  index({ uid: 1, provider: 1 }, { unique: true })
-
+  belongs_to :user, :foreign_key => "uid"
 
   def self.from_omniauth(auth)
     identity = where(auth.slice(:provider, :uid)).first_or_create do |identity|
@@ -49,6 +32,7 @@ class Identity
       # User logged in and the identity is not associated with the current user
       # so lets associate the identity and update missing info
       self.user = current_user
+      Rails.logger.info "This is user with updating identity #{self.user} PT2 #{self.inspect} PT3 #{self.user.inspect}"
       self.user.email       ||= self.email
       self.user.image       ||= self.image
       self.user.first_name  ||= self.first_name
@@ -63,9 +47,10 @@ class Identity
       return self.user
     else
       # No user associated with the identity so we need to create a new one
+      Rails.logger.info "This is a new user not associated with identity #{self.inspect}"
       self.build_user(
         email: self.email,
-        image: self.image,
+        #image: self.image,
         first_name: self.first_name,
         last_name: self.last_name,
         roles: [AppConfig.default_role]

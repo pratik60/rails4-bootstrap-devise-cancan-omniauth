@@ -1,18 +1,13 @@
-class User
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+
   include User::AuthDefinitions
   include User::Roles
 
-  has_many :identities
+  has_many :identities, :class_name => "Identity", :foreign_key => "uid"
 
-
-  field :email, type: String
-  field :image, type: String
-  field :first_name, type: String
-  field :last_name, type: String
-  field :roles_mask, type: Integer
-  
   validates_presence_of :email, :first_name, :last_name
 
   def full_name
