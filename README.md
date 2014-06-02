@@ -1,6 +1,6 @@
 UPDATE -:
 
-I haven't had the time, to work on this sadly. But someone created a fork which I strongly recommend you use over this as it is much more updated.
+I haven't had the time to maintain this project. But someone created a fork which I strongly recommend you use over this as it is updated, and better maintained.
 
 https://github.com/luismaia/rails4-bootstrap-devise-cancan-omniauth
 
