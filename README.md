@@ -1,3 +1,9 @@
+UPDATE -:
+
+I haven't had the time, to work on this sadly. But someone created a fork which I strongly recommend you use over this as it is much more updated.
+
+https://github.com/luismaia/rails4-bootstrap-devise-cancan-omniauth
+
 Start Up Rails 4 app with Devise, Omniauth, cancan and twitter bootstrap in mysql
 
 1) Make changes to development.rb to add correct settings for email
@@ -11,3 +17,4 @@ Start Up Rails 4 app with Devise, Omniauth, cancan and twitter bootstrap in mysq
 5) Run rails server
 
 6) Have fun!
+
